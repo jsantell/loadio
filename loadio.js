@@ -1,3 +1,6 @@
+// loadio.js
+// @jsantell, (c) 2012
+
 (function () {
   var Loadio = {};
 
