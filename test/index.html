@@ -17,6 +17,7 @@
 		</style>
 	</head>
 	<body>
+		<h1>Loader Test</h1>
 		<ul class="expected">
 			<li class="header">Expected</li>
 			<li>Series 1 loaded</li>
@@ -29,6 +30,8 @@
 			<li>Parallel 1/2/3/4 loaded</li>
 			<li>Parallel 1/2/3/4 loaded</li>
 			<li>Parallel callback called</li>
+			<li>Single css load</li>
+			<li>Single js load</li>
 		</ul>
 		<ul class="results">
 			<li class="header">Results</li>
@@ -51,8 +54,19 @@
 					'js/parallel2.js',
 					'js/parallel3.js',
 					'js/parallel4.js'
-					], function () { print( 'Parallel callback called', 'p_cb' ); test(); }
+					], function () { print( 'Parallel callback called', 'p_cb' );
+						loadCSS();
+					}
 				);
+			}
+			function loadCSS () {
+				Loader.load('css/single.css', function () {
+					print( 'Single css load', 'css' );
+					Loader.load('js/single.js', function () {
+						print( 'Single js load', 'singlejs' );
+						test();
+					});
+				});
 			}
 		</script>
 	</body>

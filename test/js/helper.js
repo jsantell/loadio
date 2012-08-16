@@ -10,7 +10,9 @@
     /p1|p2|p3|p4/,
     /p1|p2|p3|p4/,
     /p1|p2|p3|p4/,
-    /p_cb/
+    /p_cb/,
+    /css/,
+    /singlejs/
   ];
   var uls, results;
   uls = document.getElementsByTagName('ul');
