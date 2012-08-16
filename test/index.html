@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Loader Test</title>
+		<style>
+			ul {
+				float: left;
+			}
+			li {
+				border-bottom: 1px solid #888;
+				width: 400px;
+				padding: 3px;
+				list-style: none;
+				background-color: #B8F2FF;
+			}
+			li.header { font-weight: bold; }
+		</style>
+	</head>
+	<body>
+		<ul class="expected">
+			<li class="header">Expected</li>
+			<li>Series 1 loaded</li>
+			<li>Series 2 loaded</li>
+			<li>Series 3 loaded</li>
+			<li>Series 4 loaded</li>
+			<li>Series callback called</li>
+			<li>Parallel 1/2/3/4 loaded</li>
+			<li>Parallel 1/2/3/4 loaded</li>
+			<li>Parallel 1/2/3/4 loaded</li>
+			<li>Parallel 1/2/3/4 loaded</li>
+			<li>Parallel callback called</li>
+		</ul>
+		<ul class="results">
+			<li class="header">Results</li>
+		</ul>
+		<script src="../src/loader.js"></script>
+		<script src="js/helper.js"></script>
+		<script>
+			Loader.series([
+				'js/series1.js',
+				'js/series2.js',
+				'js/series3.js',
+				'js/series4.js',
+			], function () {
+				print( 'Series callback called', 's_cb' );
+				loadParallel();
+			});
+			function loadParallel () {
+				Loader.parallel([
+					'js/parallel1.js',
+					'js/parallel2.js',
+					'js/parallel3.js',
+					'js/parallel4.js'
+					], function () { print( 'Parallel callback called', 'p_cb' ); test(); }
+				);
+			}
+		</script>
+	</body>
+</html>
