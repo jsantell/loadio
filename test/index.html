@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Loader Test</title>
+		<title>Loadio Test</title>
 		<style>
 			ul {
 				float: left;
@@ -17,7 +17,7 @@
 		</style>
 	</head>
 	<body>
-		<h1>Loader Test</h1>
+		<h1>Loadio Test</h1>
 		<ul class="expected">
 			<li class="header">Expected</li>
 			<li>Series 1 loaded</li>
@@ -36,10 +36,10 @@
 		<ul class="results">
 			<li class="header">Results</li>
 		</ul>
-		<script src="../src/loader.js"></script>
+		<script src="../src/loadio.js"></script>
 		<script src="js/helper.js"></script>
 		<script>
-			Loader.series([
+			Loadio.series([
 				'js/series1.js',
 				'js/series2.js',
 				'js/series3.js',
@@ -49,7 +49,7 @@
 				loadParallel();
 			});
 			function loadParallel () {
-				Loader.parallel([
+				Loadio.parallel([
 					'js/parallel1.js',
 					'js/parallel2.js',
 					'js/parallel3.js',
@@ -60,9 +60,9 @@
 				);
 			}
 			function loadCSS () {
-				Loader.load('css/single.css', function () {
+				Loadio.load('css/single.css', function () {
 					print( 'Single css load', 'css' );
-					Loader.load('js/single.js', function () {
+					Loadio.load('js/single.js', function () {
 						print( 'Single js load', 'singlejs' );
 						test();
 					});

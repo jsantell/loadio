@@ -1,8 +1,8 @@
 {
   "JAVASCRIPT" : {
     "DIST_DIR" : "./",
-    "loader" : [
-      "src/loader.js"
+    "loadio" : [
+      "src/loadio.js"
     ]
   }
 }

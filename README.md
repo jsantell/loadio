@@ -1,4 +1,4 @@
-Loader
+Loadio
 ====== 
 
 A small loader for asynchronously loading JS and CSS files independently, in series or parallel to prevent blocking
@@ -16,15 +16,15 @@ Example
 Load up your files. Note, CSS link nodes do not have an onload event, so they're considered loaded after DOM injection
 
 ```javascript
-  Loader.load( 'js/file.js', function () {
+  Loadio.load( 'js/file.js', function () {
     console.log( 'file.js is loaded' );
   });
 
-  Loader.parallel([ 'js/1.js', 'js/2.js', 'js/3.js', function () {
+  Loadio.parallel([ 'js/1.js', 'js/2.js', 'js/3.js', function () {
     console.log( '1.js, 2.js, 3.js loaded in order' );
   });
   
-  Loader.series([ 'js/1.js', 'js/2.js', 'js/3.js', function () {
+  Loadio.series([ 'js/1.js', 'js/2.js', 'js/3.js', function () {
     console.log( '1.js, 2.js, 3.js loaded in no order' );
   });
 ```

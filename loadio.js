@@ -1,7 +1,7 @@
 (function () {
-  var Loader = {};
+  var Loadio = {};
 
-  Loader.parallel = function ( _scripts, callback ) {
+  Loadio.parallel = function ( _scripts, callback ) {
     var
       scripts = isArray( _scripts ) ? _scripts : [ _scripts ],
       i = 0;
@@ -12,7 +12,7 @@
     }
   };
 
-  Loader.series = function ( _scripts, callback ) {
+  Loadio.series = function ( _scripts, callback ) {
     var
       scripts = isArray( _scripts ) ? _scripts : [ _scripts ],
       i = 0;
@@ -27,7 +27,7 @@
     loadFile( scripts[ i ], callbackHelper );
   };
 
-  Loader.load = loadFile;
+  Loadio.load = loadFile;
 
   function loadFile ( url, callback ) {
     var
@@ -44,6 +44,6 @@
     return Array.isArray ? Array.isArray( obj ) : toString.call( obj ) === '[object Array]';
   }
 
-  window.Loader = Loader;
+  window.Loadio = Loadio;
 
 })();
