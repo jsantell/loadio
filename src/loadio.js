@@ -34,13 +34,13 @@
 
   function loadFile ( url, callback ) {
     var
-      isStyle = !!url.match( /\.css$/ ),
+      isStyle = !!url.match( /\.css\??.*$/ ),
       node = document.createElement( isStyle ? 'link' : 'script' );
     node.type = isStyle ? 'text/css' : 'text/javascript';
     node[ isStyle ? 'href' : 'src' ] = url;
     node.onload = callback || '';
     document.getElementsByTagName('head')[0].appendChild( node );
-    isStyle && callback();
+    isStyle && callback && callback();
   }
 
   function isArray ( obj ) {
