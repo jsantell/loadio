@@ -2,6 +2,7 @@ Loadio
 ====== 
 
 A small loader for asynchronously loading JS and CSS files independently, in series or parallel to prevent blocking
+_v0.1.0_
 
 Methods
 ---

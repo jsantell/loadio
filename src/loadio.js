@@ -1,5 +1,6 @@
 // loadio.js
 // @jsantell, (c) 2012
+// v0.1.0
 
 (function () {
   var Loadio = {};
@@ -31,6 +32,8 @@
   };
 
   Loadio.load = loadFile;
+
+  Loadio.version = '0.1.0';
 
   function loadFile ( url, callback ) {
     var
